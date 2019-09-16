@@ -1,12 +1,15 @@
 ﻿using DevExpress.DashboardCommon;
+using DevExpress.DashboardWin;
 using DevExpress.DataAccess;
 using DevExpress.XtraEditors;
+using System;
 
 namespace Dashboard_BindingToList {
     public partial class Form1 : XtraForm {
         public Form1() {
             InitializeComponent();
             dashboardViewer1.DataSourceOptions.ObjectDataSourceLoadingBehavior = DocumentLoadingBehavior.LoadAsIs;
+            dashboardViewer1.CustomizeDashboardTitle += DashboardViewer1_CustomizeDashboardTitle;
         }
 
         private void Form1_Load(object sender, System.EventArgs e) {
@@ -42,9 +45,16 @@ namespace Dashboard_BindingToList {
                 e.Data = Data.CreateData();
         }
 
-        private void button1_Click(object sender, System.EventArgs e) {
-            // Reloads data in data sources.
-            dashboardViewer1.ReloadData();
+        private void DashboardViewer1_CustomizeDashboardTitle(object sender, CustomizeDashboardTitleEventArgs e)
+        {
+            DashboardToolbarItem titleButton = new DashboardToolbarItem("Load Data",
+                new Action<DashboardToolbarItemClickEventArgs>((args) =>
+                {
+                    // Reloads data in data sources.
+                    dashboardViewer1.ReloadData();
+                }));
+            titleButton.Caption = "Reload Data";
+            e.Items.Add(titleButton);
         }
     }
 }

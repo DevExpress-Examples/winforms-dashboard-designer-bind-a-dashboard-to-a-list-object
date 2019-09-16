@@ -71,7 +71,6 @@
     <Reference Include="DevExpress.XtraPrinting.v18.2" />
     <Reference Include="DevExpress.Images.v18.2" />
     <Reference Include="DevExpress.XtraRichEdit.v18.2" />
-    <Reference Include="DevExpress.XtraRichEdit.v18.2.Extensions" />
     <Reference Include="DevExpress.XtraTreeList.v18.2" />
     <Reference Include="System" />
     <Reference Include="System.Core" />

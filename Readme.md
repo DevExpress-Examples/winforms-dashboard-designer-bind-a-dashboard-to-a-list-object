@@ -4,10 +4,10 @@
 * [Data.cs](./CS/Dashboard_BindingToList/Data.cs) (VB: [Data.vb](./VB/Dashboard_BindingToList/Data.vb))
 * [Form1.cs](./CS/Dashboard_BindingToList/Form1.cs) (VB: [Form1.vb](./VB/Dashboard_BindingToList/Form1.vb))
 <!-- default file list end -->
-# How to Bind a Dashboard to a List
+# How to Bind a Dashboard to a List of Objects
 
 
-This example demonstrates how to bind a dashboard to a List object.
+This example demonstrates how to bind a dashboard to a list of objects.
 
 The quantity values are provided at runtime. The dashboard data source is added to the [Dashboard.DataSources](https://docs.devexpress.com/Dashboard/DevExpress.DashboardCommon.Dashboard.DataSources) collection on the first load.
 

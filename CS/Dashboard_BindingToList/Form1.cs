@@ -19,7 +19,6 @@ namespace Dashboard_BindingToList {
             objectDataSource.DataMember = "CreateData";
             dashboard.DataSources.Add(objectDataSource);
 
-            // Creates a Pie dashboard item that displays share of sold units quantity per sales person.
             PieDashboardItem pies = new PieDashboardItem();
             pies.DataSource = dashboard.DataSources[0];
             Dimension salesPersonArgument = new Dimension("SalesPerson");
@@ -29,7 +28,6 @@ namespace Dashboard_BindingToList {
             salesPersonArgument.TopNOptions.Measure = quantity;
             pies.Values.Add(quantity);
 
-            // Creates a Grid dashboard item that displays sales persons and corresponding quantities.
             GridDashboardItem grid = new GridDashboardItem();
             grid.DataSource = dashboard.DataSources[0];
             grid.Columns.Add(new GridDimensionColumn(new Dimension("SalesPerson")));
@@ -38,8 +36,6 @@ namespace Dashboard_BindingToList {
             dashboard.Items.AddRange(pies, grid);
             dashboardViewer1.Dashboard = dashboard;
         }
-
-        // Handles the DashboardViewer.DataLoading event to provide the dashboard with new data.
         private void dashboardViewer1_DataLoading(object sender, DataLoadingEventArgs e) {
             if (e.DataSourceName == "Data Source 1")
                 e.Data = Data.CreateData();
@@ -50,7 +46,6 @@ namespace Dashboard_BindingToList {
             DashboardToolbarItem titleButton = new DashboardToolbarItem("Load Data",
                 new Action<DashboardToolbarItemClickEventArgs>((args) =>
                 {
-                    // Reloads data in data sources.
                     dashboardViewer1.ReloadData();
                 }));
             titleButton.Caption = "Reload Data";

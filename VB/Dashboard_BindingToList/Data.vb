@@ -16,7 +16,7 @@ Namespace Dashboard_BindingToList
 				Dim record As New Data()
                 Dim seed As Integer = CInt(Date.Now.Ticks And &HFFFF)
                 record.SalesPerson = salesPersons((New Random(seed)).Next(0, salesPersons.Length))
-                record.Quantity = (New Random(seed)).Next(0, 100)
+				record.Quantity = (New Random(seed)).Next(0, 100)
 				data_Renamed.Add(record)
 				Thread.Sleep(3)
 			Next i

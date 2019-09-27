@@ -14,10 +14,13 @@ namespace Dashboard_BindingToList {
 
         private void Form1_Load(object sender, System.EventArgs e) {
             Dashboard dashboard = new Dashboard();
-            DashboardObjectDataSource objectDataSource = new DashboardObjectDataSource("Data Source 1");
-            objectDataSource.DataSource = typeof(Data);
-            objectDataSource.DataMember = "CreateData";
-            dashboard.DataSources.Add(objectDataSource);
+
+            DashboardObjectDataSource dataSource = new DashboardObjectDataSource("Data Source 1");
+            dashboardViewer1.DataLoading += (s, ev) => {
+                if (ev.DataSourceName == "Data Source 1")
+                    ev.Data = Data.CreateData();
+            };
+            dashboard.DataSources.Add(dataSource);
 
             PieDashboardItem pies = new PieDashboardItem();
             pies.DataSource = dashboard.DataSources[0];
@@ -35,10 +38,7 @@ namespace Dashboard_BindingToList {
 
             dashboard.Items.AddRange(pies, grid);
             dashboardViewer1.Dashboard = dashboard;
-        }
-        private void dashboardViewer1_DataLoading(object sender, DataLoadingEventArgs e) {
-            if (e.DataSourceName == "Data Source 1")
-                e.Data = Data.CreateData();
+
         }
 
         private void DashboardViewer1_CustomizeDashboardTitle(object sender, CustomizeDashboardTitleEventArgs e)

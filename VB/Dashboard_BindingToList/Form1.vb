@@ -16,10 +16,14 @@ Namespace Dashboard_BindingToList
 
 		Private Sub Form1_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
 			Dim dashboard As New Dashboard()
-			Dim objectDataSource As New DashboardObjectDataSource("Data Source 1")
-			objectDataSource.DataSource = GetType(Data)
-			objectDataSource.DataMember = "CreateData"
-			dashboard.DataSources.Add(objectDataSource)
+
+			Dim dataSource As New DashboardObjectDataSource("Data Source 1")
+			AddHandler dashboardViewer1.DataLoading, Sub(s, ev)
+				If ev.DataSourceName = "Data Source 1" Then
+					ev.Data = Data.CreateData()
+				End If
+			End Sub
+			dashboard.DataSources.Add(dataSource)
 
 			Dim pies As New PieDashboardItem()
 			pies.DataSource = dashboard.DataSources(0)
@@ -38,11 +42,7 @@ Namespace Dashboard_BindingToList
 
 			dashboard.Items.AddRange(pies, grid)
 			dashboardViewer1.Dashboard = dashboard
-		End Sub
-		Private Sub dashboardViewer1_DataLoading(ByVal sender As Object, ByVal e As DataLoadingEventArgs) Handles dashboardViewer1.DataLoading
-			If e.DataSourceName = "Data Source 1" Then
-				e.Data = Data.CreateData()
-			End If
+
 		End Sub
 
 		Private Sub DashboardViewer1_CustomizeDashboardTitle(ByVal sender As Object, ByVal e As CustomizeDashboardTitleEventArgs)

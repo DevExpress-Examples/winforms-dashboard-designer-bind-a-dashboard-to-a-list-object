@@ -35,8 +35,6 @@
 			Me.dashboardViewer1.Name = "dashboardViewer1"
 			Me.dashboardViewer1.Size = New System.Drawing.Size(743, 404)
 			Me.dashboardViewer1.TabIndex = 0
-'INSTANT VB NOTE: The following InitializeComponent event wireup was converted to a 'Handles' clause:
-'ORIGINAL LINE: this.dashboardViewer1.DataLoading += new DevExpress.DashboardCommon.DataLoadingEventHandler(this.dashboardViewer1_DataLoading);
 			' 
 			' Form1
 			' 
@@ -54,7 +52,7 @@
 
 		#End Region
 
-		Private WithEvents dashboardViewer1 As DevExpress.DashboardWin.DashboardViewer
+		Private dashboardViewer1 As DevExpress.DashboardWin.DashboardViewer
 	End Class
 End Namespace
 

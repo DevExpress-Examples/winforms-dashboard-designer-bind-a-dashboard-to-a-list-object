@@ -35,7 +35,6 @@
             this.dashboardViewer1.Name = "dashboardViewer1";
             this.dashboardViewer1.Size = new System.Drawing.Size(743, 404);
             this.dashboardViewer1.TabIndex = 0;
-            this.dashboardViewer1.DataLoading += new DevExpress.DashboardCommon.DataLoadingEventHandler(this.dashboardViewer1_DataLoading);
             // 
             // Form1
             // 

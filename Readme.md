@@ -15,4 +15,8 @@ Click the **Reload Data** button to call the [DashboardViewer.ReloadData](https:
 
 ![](/images/screenshot.png)
 
+## Documentation
+
+- [Object Data Source](https://docs.devexpress.com/Dashboard/116522/basic-concepts-and-terminology/data-sources#object-data-source)
+
 
